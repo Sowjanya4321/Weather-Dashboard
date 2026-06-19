@@ -1,7 +1,6 @@
 async function getWeather() {
 
     const city = document.getElementById("cityInput").value;
-
     const result = document.getElementById("weatherResult");
 
     if(city === "") {
@@ -9,10 +8,10 @@ async function getWeather() {
         return;
     }
 
-    const apiKey = "YOUR_API_KEY";
+    const apiKey = "fedfc7bd05bcb1547af6993aaf553ea";
 
     const url =
-`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     try {
 
@@ -20,28 +19,21 @@ async function getWeather() {
 
         const response = await fetch(url);
 
-        if(!response.ok) {
+        if (!response.ok) {
             throw new Error("City not found");
         }
 
         const data = await response.json();
 
-        const temp = data.main.temp;
-        const humidity = data.main.humidity;
-        const wind = data.wind.speed;
-        const condition = data.weather[0].description;
-
         result.innerHTML = `
             <h2>${data.name}</h2>
-            <p>Temperature: ${temp} °C</p>
-            <p>Humidity: ${humidity}%</p>
-            <p>Wind Speed: ${wind} m/s</p>
-            <p>Condition: ${condition}</p>
+            <p>🌡 Temperature: ${data.main.temp} °C</p>
+            <p>💧 Humidity: ${data.main.humidity}%</p>
+            <p>🌬 Wind Speed: ${data.wind.speed} m/s</p>
+            <p>☁ Weather: ${data.weather[0].description}</p>
         `;
 
-    }
-    catch(error) {
-
+    } catch(error) {
         result.innerHTML =
         `<p style="color:red">${error.message}</p>`;
     }
