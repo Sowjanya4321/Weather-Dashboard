@@ -1,27 +1,85 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-    <div class="container">
-        <h1>Weather Dashboard</h1>
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 
-        <input
-            type="text"
-            id="cityInput"
-            placeholder="Enter city name">
+    background:linear-gradient(
+    135deg,
+    #4facfe,
+    #00f2fe);
 
-        <button onclick="getWeather()">
-            Search
-        </button>
+    color:white;
+}
 
-        <div id="weatherResult"></div>
-    </div>
+.container{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
 
-    <script src="script.js"></script>
+    padding:30px;
+    border-radius:20px;
 
-</body>
-</html>
+    width:400px;
+    text-align:center;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.2);
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+button{
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+
+    background:#ffffff;
+    color:#333;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#f1f1f1;
+}
+
+#dateTime{
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+#weatherResult{
+    margin-top:20px;
+}
+
+#weatherResult h2{
+    margin-bottom:15px;
+}
+
+.weather-card p{
+    margin:10px 0;
+    font-size:18px;
+}
